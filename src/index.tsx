@@ -4,22 +4,19 @@ import './index.css';
 // import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-
 import { createStore } from 'redux';
 import { enthusiasm } from './reducers/index';
-import { StoreState } from './types/index';
-
-import Hello from './containers/hello';
+import AppRouter from './router/index';
 import { Provider } from 'react-redux';
 
-const store = createStore<StoreState, any, any, any>(enthusiasm, {
+const store = createStore(enthusiasm, {
   enthusiasmLevel: 1,
   languageName: 'TypeScript',
 });
 
 ReactDOM.render(
     <Provider store={store}>
-      <Hello />
+      <AppRouter />
     </Provider>,
     document.getElementById('root') as HTMLElement
 );
